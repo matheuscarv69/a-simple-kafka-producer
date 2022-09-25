@@ -1,4 +1,4 @@
-package matheuscarv69.com.github.asimplekafkaproducer.config.kafka;
+package matheuscarv69.com.github.asimplekafkaproducer.configs.kafka;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -21,10 +21,10 @@ public class KafkaProducerConfig {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Value(value = "${spring.kafka.bootstrap-servers}")
+    @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
 
-    @Value(value = "${kafka.simple.topic}")
+    @Value("${kafka.simple.topic}")
     private String topicName;
 
     @Bean
