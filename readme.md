@@ -1,6 +1,7 @@
 # 🚀 A Simple Kafka Producer 🔗
 
-Este projeto trata-se de uma POC de um jovem desocupado/entediado em um sábado à tarde, ele consiste basicamente em uma API com um endpoint e um simples e inocente Kafka Producer.
+Este projeto trata-se de uma POC de um jovem desocupado/entediado em um sábado à tarde, ele consiste basicamente em uma
+API com um endpoint e um simples e inocente Kafka Producer.
 
 As tecnologias usadas para isso foram Java, Spring Boot, Kafka e Swagger.
 
@@ -9,15 +10,19 @@ As tecnologias usadas para isso foram Java, Spring Boot, Kafka e Swagger.
 
 ## 🤔 O que é este projeto?
 
-Ele nada mais é que um Kafka Producer, implementado da forma mais simples possível para se ter um Producer operante quando for necessário. 
+Ele nada mais é que um Kafka Producer, implementado da forma mais simples possível para se ter um Producer operante
+quando for necessário.
 
-Logo, podemos dizer que ele trata-se de um template para os futuros Kafka Producers que este humilde dev que os escreve, possa vir a desenvolver.
+Logo, podemos dizer que ele trata-se de um template para os futuros Kafka Producers que este humilde dev que os escreve,
+possa vir a desenvolver.
 
 ### 🧐 Mas o que é um Kafka Producer?
 
-Apache Kafka é uma plataforma de streaming baseada em sistema distribuído de publish/subscribe, onde há um processo chamado producer, que envia mensagens para um tópico.
+Apache Kafka é uma plataforma de streaming baseada em sistema distribuído de publish/subscribe, onde há um processo
+chamado producer, que envia mensagens para um tópico.
 
 ## 🚀 Executando a aplicação 👾
+
 ### 📍 Local
 
 Se você quiser fazer alguma modificação no código precisará ter instalado em sua máquina as seguintes ferramentas:
@@ -27,7 +32,8 @@ Se você quiser fazer alguma modificação no código precisará ter instalado e
 
 ### 🐳 Docker
 
-Este projeto conta com um **docker-compose**, contento os serviços de zookepper e kafka, inclusive a própria imagem da aplicação já está configurada para ser
+Este projeto conta com um **docker-compose**, contento os serviços de zookepper e kafka, inclusive a própria imagem da
+aplicação já está configurada para ser
 executada no docker.
 
 Caso queria executar somente os serviços do Apache Kafka, por favor comente o serviço da aplicação no docker-compose.
@@ -35,7 +41,8 @@ Caso queria executar somente os serviços do Apache Kafka, por favor comente o s
 Os requisitos para isso são:
 
 - [Docker](https://www.docker.com/products/docker-desktop) - Baixe de acordo com o seu SO
-- [Docker-compose](https://docs.docker.com/compose/install/) - Se estiver utilizando Windows, o Docker desktop já possui o docker-compose instalado
+- [Docker-compose](https://docs.docker.com/compose/install/) - Se estiver utilizando Windows, o Docker desktop já possui
+  o docker-compose instalado
 
 A imagem da aplicação também está disponível no Docker Hub:
 
@@ -48,13 +55,16 @@ Caso queria executa-lá através dessa imagem, abaixo tem alguns comandos que po
 ```shell
 docker pull matheuscarv69/a-simple-kafka-producer
 ```
+
 ## 🏃‍♂️ 2. Running
 
-O comando abaixo executa a imagem baixada em um container, essa aplicação possui algumas env vars, atenção para as que possuem o sufixo **HOST**, neste você deve colocar o ipv4 da sua máquina.
+O comando abaixo executa a imagem baixada em um container, essa aplicação possui algumas env vars, atenção para as que
+possuem o sufixo **HOST**, neste você deve colocar o ipv4 da sua máquina.
 
 ```shell
 docker run -d -p 8081:8081 -e SERVER_PORT=8081 -e KAFKA_HOST="localhost:9092" matheuscarv69/a-simple-kafka-producer
 ```
+
 ## 🎲 Executando a API com o docker-compose
 
 Com esse repositório já clonado em sua máquina e com todos os pré-requisitos atendidos.
@@ -72,12 +82,17 @@ docker-compose up -d
 
 ## 🔧 Variáveis de Ambiente da Aplicação
 
-| ENV_VARS                      | Descrição                                                                                                                               |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| SERVER_PORT                   | Porta que a aplicação utilizará em sua execução. (Default: 8081)                                                                        |
-| KAFKA_HOST                    | Url do Kafka. (Default: localhost: 9092)                                                                                               |
+| ENV_VARS                      | Descrição                                                        |
+| ----------------------------- |------------------------------------------------------------------|
+| SERVER_PORT                   | Porta que a aplicação utilizará em sua execução. (Default: 8081) |
+| KAFKA_HOST                    | Url do Kafka. (Default: localhost: 9092)                         |
+| KAFKA_TOPIC_NAME              | Nome do tópico do kafka. (Default: a-simple-topic)               |
+| KAFKA_GROUP_ID                | Group Id do Kafka. (Default: a-simple-group-id)                    |
+
 ### 🚀 A Simple Kafka Consumer 📚
-Essa é uma API que foi desenvolvida para ser um simples Kafka Consumer seguindo a mesma pegada desse projeto, no link abaixo você pode acessar toda a documentação e a aplicação.
+
+Essa é uma API que foi desenvolvida para ser um simples Kafka Consumer seguindo a mesma pegada desse projeto, no link
+abaixo você pode acessar toda a documentação e a aplicação.
 
 ```bash
 
@@ -89,7 +104,7 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto.
 
 - Java 11
 - Spring Boot 2.7.4
-  - Web
+    - Web
 - Swagger
 - Kafka
 

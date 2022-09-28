@@ -1,6 +1,22 @@
-version: '3.9'
+version: '3'
 
 services:
+
+  a-simple-kafka-producer:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: a-simple-kafka-producer
+    environment:
+      SERVER_PORT: 8081
+      KAFKA_HOST: kafka:29092 # 29092 por conta que eh a porta interna do kafka
+      KAFKA_GROUP_ID: a-simple-group-id
+      KAFKA_TOPIC_NAME: a-simple-topic
+    ports:
+      - "8081:8081"
+    depends_on:
+      - kafka
+
   zookeeper:
     image: confluentinc/cp-zookeeper:7.1.4.arm64
     container_name: zookeeper
@@ -10,14 +26,16 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:7.1.4.arm64
-    container_name: broker
+    container_name: kafka
     ports:
       - "9092:9092"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://broker:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+    depends_on:
+      - zookeeper
