@@ -62,7 +62,7 @@ O comando abaixo executa a imagem baixada em um container, essa aplicação poss
 possuem o sufixo **HOST**, neste você deve colocar o ipv4 da sua máquina.
 
 ```shell
-docker run -d -p 8081:8081 -e SERVER_PORT=8081 -e KAFKA_HOST="localhost:9092" matheuscarv69/a-simple-kafka-producer
+docker run -d -p 8081:8081 -e SERVER_PORT=8081 -e KAFKA_HOST="localhost:9092" -e KAFKA_GROUP_ID="a-simple-group-id" -e KAFKA_TOPIC_NAME="a-simple-topic" matheuscarv69/a-simple-kafka-producer
 ```
 
 ## 🎲 Executando a API com o docker-compose
